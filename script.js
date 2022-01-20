@@ -1,26 +1,41 @@
 'use strict';
 let inputBtn = document.querySelector('#input-btn'),
     outputBtn = document.querySelector('#output-btn'),
-    firstMultipliers = [],
-    secondMultipliers = [],
+    firstMultipliers,
+    secondMultipliers,
     factIteration = 1;
+
+let firstNum,
+    secondNum,
+    CommDivisor;
 
 
 inputBtn.addEventListener('click', function () {
+    firstMultipliers = [];
+    secondMultipliers = [];
 
-    let firstNum = 4;
-    let secondNum = 8;
+    firstNum = parseInt(prompt('Enter the first number:'));
+    secondNum = parseInt(prompt('Enter the second number:'));
+    if (!parseInt(firstNum) || !parseInt(secondNum)) {
+        alert('Error! Values not entered or entered incorrectly!');
+        while (!parseInt(firstNum) || !parseInt(secondNum)) {
+            firstNum = parseInt(prompt('Enter the first number:'));
+            secondNum = parseInt(prompt('Enter the second number:'));
+        }
+    }
 
     factorize(firstNum);
     factorize(secondNum);
 
-    console.log(firstMultipliers);
-    console.log(secondMultipliers);
     factIteration = 1;
 });
 
+outputBtn.addEventListener('click', function () {
+    findGCD(firstMultipliers, secondMultipliers);
+});
 
 
+//Функция разложения числа на множители
 function factorize(factNum) {
     if (factIteration === 1) {
         let i = 2;
@@ -48,3 +63,26 @@ function factorize(factNum) {
         return secondMultipliers;
     }
 }
+
+
+function findGCD(firstArray, secArray) {
+    let prodOfNum = [];
+
+    for (let i = 0; i <= firstArray.length - 1; i++) {
+        if (secArray.includes(firstArray[i])) {
+            prodOfNum.push(firstArray[i]);
+            secArray.splice(secArray.indexOf(firstArray[i]), 1);
+        }
+    }
+
+    if (prodOfNum.length === 0) {
+        return alert('For these numbers there is no GCD.');
+    }
+
+    CommDivisor = prodOfNum.reduce((total, number) => {
+        return total *= number;
+    });
+    alert(`GCD of numbers ${firstNum} and ${secondNum} is ${CommDivisor}`);
+}
+
+
