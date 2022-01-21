@@ -27,11 +27,13 @@ inputBtn.addEventListener('click', function () {
     factorize(firstNum);
     factorize(secondNum);
 
+    findGCD(firstMultipliers, secondMultipliers);
+
     factIteration = 1;
 });
 
 outputBtn.addEventListener('click', function () {
-    findGCD(firstMultipliers, secondMultipliers);
+
 });
 
 
