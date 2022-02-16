@@ -241,3 +241,25 @@ h6 {
     }
     
 }
+
+@media screen and (max-width: 319px) {
+    body {
+        padding-top: 15px;
+        padding: 15px 10px 5px 10px;
+
+    }
+    .header_title {
+        font-size: 2em;
+    }
+    .card {
+        width: 300px;
+        margin: 50px auto;
+    }
+    .card_title {
+        font-size: 24px;
+    }    
+    #input_btn {
+        width: 150px;
+    }
+    
+}
