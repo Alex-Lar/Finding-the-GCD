@@ -2,8 +2,6 @@
 
 let inputBtn = document.querySelector('#input_btn');
 
-
-
 inputBtn.addEventListener('click', function () {
     const array = [];
     const dublicOfArr = [];
@@ -19,7 +17,7 @@ inputBtn.addEventListener('click', function () {
     }
 
     for (let i = 0; i < iterator; i++) {
-        let userAnswer = parseInt(prompt(`Введите ${i + 1} число`, ''));
+        let userAnswer = parseInt(prompt(`Enter the ${i + 1}${declensions(i + 1)} number`, ''));
         array.push(userAnswer);
         dublicOfArr.push(userAnswer);
     }
@@ -33,7 +31,7 @@ inputBtn.addEventListener('click', function () {
             if (numOne >= numTwo) {
                 if (numOne % numTwo === 0) {
                     if (array.length === 0) {
-                        return alert(`НОД(${dublicOfArr}) = ${numTwo}`);
+                        return alert(`G.C.D.(${dublicOfArr}) = ${numTwo}`);
                     } 
                     else if (array.length !== 0) {
                         numOne = array.shift();
@@ -43,13 +41,12 @@ inputBtn.addEventListener('click', function () {
                     remainder = numOne % numTwo;
                     numOne = numTwo;
                     numTwo = remainder;
-
                 }
             } 
             else if (numOne < numTwo) {
                 if (numTwo % numOne === 0) {
                     if (array.length === 0) {
-                        return alert(`НОД(${dublicOfArr}) = ${numOne}`);
+                        return alert(`G.C.D.(${dublicOfArr}) = ${numOne}`);
                     } 
                     else if (array.length !== 0) {
                         numTwo = array.shift();
@@ -64,5 +61,18 @@ inputBtn.addEventListener('click', function () {
         }
     }
     findGCD(furstNum, secNum);
-    
+
+
+    function declensions(el) {
+        switch (el) {
+            case 1:
+                return 'st';
+            case 2:
+                return 'nd';
+            case 3:
+                return 'rd';
+            case 4:
+                return 'th';    
+        }
+    }
 });
