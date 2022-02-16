@@ -3,10 +3,20 @@
 let inputBtn = document.querySelector('#input_btn');
 
 
+
 inputBtn.addEventListener('click', function () {
-    const array = [],
-          dublicOfArr = [];
-    let iterator = 3;
+    const array = [];
+    const dublicOfArr = [];
+    const radioValue = document.querySelector('input[name="nums"]:checked').value;
+    let iterator = 0;
+    
+    if(radioValue === "2") {
+        iterator = 2;
+    } else if (radioValue === "3") {
+        iterator = 3;
+    } else if (radioValue === "4") {
+        iterator = 4;
+    }
 
     for (let i = 0; i < iterator; i++) {
         let userAnswer = parseInt(prompt(`Введите ${i + 1} число`, ''));
