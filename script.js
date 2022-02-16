@@ -1,6 +1,6 @@
 'use strict';
 
-let inputBtn = document.querySelector('#input-btn');
+let inputBtn = document.querySelector('#input_btn');
 
 
 inputBtn.addEventListener('click', function () {

@@ -1,0 +1,164 @@
+body {
+    padding-top: 60px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+
+    background-color: #424040;
+    color: #fff;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+
+
+.header_title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 3.2em;
+    text-align: center;
+
+    text-transform: uppercase;
+}
+
+
+
+.card {
+    padding: 0px 65px 0px 65px;
+    margin: 100px auto;
+    width: 330px;
+    height: 422px;
+    background-color: #525252;
+    border: 1px solid #525252;
+    border-radius: .5em;
+
+    box-shadow: 0px 4px 11px #00000044;
+}
+
+
+.card_title {
+    margin-top: 26px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #A7A7A7;
+
+    text-transform: uppercase;
+}
+
+.card_title:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin: 29px 0 30px 0;
+
+    background-color: #424040;
+
+}
+
+
+.sub_text {
+    margin-bottom: 31px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #A7A7A7;
+}
+
+
+.radio_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.radio_btn {
+    display: flex;
+    flex-direction: column;
+    padding-top: 6px;
+    width: 40px;
+    height: 50px;
+    border: 1px solid #424040;
+    border-radius: .3em;
+    color: #A7A7A7;
+    background-color: #424040;
+}
+
+.label_num {
+    margin: 0 auto 3px;
+}
+
+#two_num {
+    margin: 0 auto;
+}
+
+#three_num {
+    margin: 0 auto;
+}
+
+#four_num {
+    margin: 0 auto;
+}
+
+
+.start_btn {
+    text-align: center;
+}
+
+.start_btn:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+
+    margin: 50px 0 50px 0;
+
+    background-color: #424040;
+}
+
+
+#input_btn {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #525252;
+    background-color: #A7A7A7;
+
+    border: none;
+    border-radius: .350em;
+    width: 180px;
+    height: 40px;
+
+    cursor: pointer;
+    transition: background-color .2s linear;
+}
+
+#input_btn:hover {
+    background-color: #dbdbdb;
+}

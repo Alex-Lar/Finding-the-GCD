@@ -1,17 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Playfair+Display:wght@800&family=Roboto&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Finding GCD</title>
 </head>
-<body>
-    <h1>Program for finding GCD</h1>
 
-    <button id="input-btn">Enter Numbers</button>
+<body>
+    <h1 class="header_title">The Greatest Common Divisor</h1>
+
+    <div class="container">
+        <div class="card">
+            <h2 class="card_title">Calculator</h2>
+
+            <div class="sub_text">количество чисел</div>
+
+            <div class="radio_buttons">
+                <div class="radio_btn">
+                    <label class="label_num" for="two_num">2</label>
+                    <input type="radio" name="nums" id="two_num" value="2" checked>
+                </div>
+
+                <div class="radio_btn">
+                    <label class="label_num" for="three_num">3</label>
+                    <input type="radio" name="nums" id="three_num" value="3">
+                </div>
+
+                <div class="radio_btn">
+                    <label class="label_num" for="four_num">4</label>
+                    <input type="radio" name="nums" id="four_num" value="4">
+                </div>
+            </div><!-- ./radio_buttons -->
+
+            <div class="start_btn">
+                <button id="input_btn">get started</button>
+            </div>
+
+        </div><!-- ./card -->
+
+    </div><!-- ./container -->
 
     <script src="script.js"></script>
 </body>
+
 </html>
