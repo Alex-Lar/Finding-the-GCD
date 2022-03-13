@@ -1,78 +1,76 @@
-'use strict';
-
 let inputBtn = document.querySelector('#input_btn');
 
 inputBtn.addEventListener('click', function () {
-    const array = [];
-    const dublicOfArr = [];
-    const radioValue = document.querySelector('input[name="nums"]:checked').value;
-    let iterator = 0;
+    const numberOfRequests = parseInt(document.querySelector('input[name="nums"]:checked').value);
+
+    const numsForExpression = getValuesFromUser(numberOfRequests);
+    const dublicOfNums = numsForExpression.slice(0);
+    const commonDivisor = calcGCD(numsForExpression);
     
-    if(radioValue === "2") {
-        iterator = 2;
-    } else if (radioValue === "3") {
-        iterator = 3;
-    } else if (radioValue === "4") {
-        iterator = 4;
-    }
+    displayOutput(commonDivisor, dublicOfNums);
+});
 
-    for (let i = 0; i < iterator; i++) {
-        let userAnswer = parseInt(prompt(`Enter the ${i + 1}${declensions(i + 1)} number`, ''));
+
+function getValuesFromUser(num) {
+    const array = [];
+
+    for (let i = 0; i < num; i++) {
+        let userAnswer = parseInt(prompt(`Enter the ${i + 1}${getDeclension(i + 1)} number`, ''));
         array.push(userAnswer);
-        dublicOfArr.push(userAnswer);
     }
 
-    let furstNum = array.shift(),
-        secNum = array.shift();
+    return array;
+}
 
-    function findGCD(numOne, numTwo) {
-        let remainder; 
-        while (remainder !== 0) {
-            if (numOne >= numTwo) {
-                if (numOne % numTwo === 0) {
-                    if (array.length === 0) {
-                        return alert(`G.C.D.(${dublicOfArr}) = ${numTwo}`);
-                    } 
-                    else if (array.length !== 0) {
-                        numOne = array.shift();
-                    }
-                } 
-                else if (numOne % numTwo !== 0) {
-                    remainder = numOne % numTwo;
-                    numOne = numTwo;
-                    numTwo = remainder;
+function calcGCD(array) {
+    let remainder;
+    let numA = array.shift();
+    let numB = array.shift();
+
+    while (remainder !== 0) {
+        if (numA >= numB) {
+            if (numA % numB === 0) {
+                if (array.length === 0) {
+                    return numB;
+                } else if (array.length !== 0) {
+                    numA = array.shift();
                 }
-            } 
-            else if (numOne < numTwo) {
-                if (numTwo % numOne === 0) {
-                    if (array.length === 0) {
-                        return alert(`G.C.D.(${dublicOfArr}) = ${numOne}`);
-                    } 
-                    else if (array.length !== 0) {
-                        numTwo = array.shift();
-                    }
-                } 
-                else if (numTwo % numOne !== 0) {
-                    remainder = numTwo % numOne;
-                    numTwo = numOne;
-                    numOne = remainder;
+            } else if (numA % numB !== 0) {
+                remainder = numA % numB;
+                numA = numB;
+                numB = remainder;
+            }
+        } else if (numA < numB) {
+            if (numB % numA === 0) {
+                if (array.length === 0) {
+                    return numA;
+                } else if (array.length !== 0) {
+                    numB = array.shift();
                 }
+            } else if (numB % numA !== 0) {
+                remainder = numB % numA;
+                numB = numA;
+                numA = remainder;
             }
         }
     }
-    findGCD(furstNum, secNum);
+}
 
 
-    function declensions(el) {
-        switch (el) {
-            case 1:
-                return 'st';
-            case 2:
-                return 'nd';
-            case 3:
-                return 'rd';
-            case 4:
-                return 'th';    
-        }
+function displayOutput(divisor, array) {
+    return alert(`G.C.D.(${array}) = ${divisor}`);
+}
+
+
+function getDeclension(num) {
+    switch (num) {
+        case 1:
+            return 'st';
+        case 2:
+            return 'nd';
+        case 3:
+            return 'rd';
+        case 4:
+            return 'th';
     }
-});
+}
